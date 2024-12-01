@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 filepath = 'day1_input.txt'
 
 n1_arr = []
@@ -24,3 +26,17 @@ for n1, n2 in zip(n1_arr, n2_arr):
     total_sum += abs(n1 - n2)
 
 print(total_sum)
+
+## PART 2
+
+n2_freq = defaultdict(int)
+
+for n2 in n2_arr:
+    n2_freq[n2] += 1
+
+similarity_score = 0
+
+for n1 in n1_arr:
+    similarity_score += n1 * n2_freq[n1]
+
+print(similarity_score)
